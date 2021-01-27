@@ -5,15 +5,35 @@
     <link>https://zzu-gyf.github.io/post/</link>
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 27 Jan 2021 17:51:41 +0800</lastBuildDate><atom:link href="https://zzu-gyf.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://zzu-gyf.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Archblog</title>
+      <title></title>
       <link>https://zzu-gyf.github.io/post/archblog/</link>
-      <pubDate>Wed, 27 Jan 2021 17:51:41 +0800</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://zzu-gyf.github.io/post/archblog/</guid>
-      <description>archlinux windows10双系统：</description>
+      <description>title: &amp;ldquo;Archblog&amp;rdquo; date: 2021-01-27T17:51:41+08:00 draft: true archlinux windows10双系统安装过程 教程来源：知乎 1.联网 无线网络：
+输入
+iwctl 进入iwd模式，输入
+device list 查看你的网卡名字，这里假设是wlan0，输入
+station wlan0 scan 检查扫描网络，输入
+station wlan0 get-networks 查看网络名字，假设名字叫BUPT-portal，输入
+station wlan0 connect BUPT-portal 接着输入密码（如果有密码的话），输入
+exit 退出iwd模式
+连接成功之后，检查是否可以上网
+ping www.baidu.com 重新设置mirrorlist（可选，建议）：
+方法一：使用reflector来获取速度最快的6个镜像，并将地址保存至/etc/pacman.d/mirrorlist
+reflector -c China -a 6 --sort rate --save /etc/pacman.d/mirrorlist 方法二：直接修改/etc/pacman.d/mirrolist
+nano /etc/pacman.d/mirrolist 找到China复制几个到最上方即可
+2.分区 1.检查硬盘
+lsblk 2.建立分区
+因为之前划好的空间在nvme0n1上，所以执行
+cfdisk /dev/nvme0n1 新建swap分区，找到Free space选择new，输入分区大小，选择type未linux swap
+（此时如果不想新建swap分区，可以参考5.正式配置新系统的建立swap文件）
+新建根目录，找到Free space选择new，输入分区大小，选择Write，输入yes
+写入完成 选择Quit 回车退出
+开启交换分区
+这里假定交换分区为nvme0n1p1</description>
     </item>
     
   </channel>
